@@ -1,0 +1,166 @@
+html {
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#hero-space {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(img/pal-bg.png);
+  background-size: cover;
+  background-position: bottom center;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* #hero-logo {
+  min-width: 200px;
+  max-width: 500px;
+} */
+
+#hero-text {
+  text-align: center;
+  color: rgb(240, 240, 240);
+  font-family: "Exo 2", sans-serif;
+  margin-top: -45px;
+  text-transform: uppercase;
+  font-size: 26px;
+}
+
+#paldex {
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: -20px;
+
+}
+
+#wrapper {
+  padding: 40px;
+  border-radius: 20px;
+
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}
+
+.pal-info {
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin: 7px;
+}
+
+.pal-img {
+  width: 180px;
+  background-color: rgb(228, 228, 228);
+  border-radius: 10px;
+}
+
+.pal-info .id {
+  /* margin: 0px 0px 0px 3px; */
+  margin: 0;
+  font-family: "Exo 2", sans-serif;
+  font-size: 17px;
+  position: absolute;
+  color: rgb(88, 88, 88);
+  background-color: rgb(202, 202, 202);
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 5px;;
+  padding: 0px 5px 2px 3px;
+
+}
+
+.pal-info .pal-name {
+  margin: 0;
+  font-family: "Exo 2", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.pal-info .element {
+  /* background-color:rgb(100, 100, 100); */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  /* padding: 1px 5px 1px 5px; */
+  font-family: "Exo 2", sans-serif;
+  border-radius: 5px;
+  /* float: left; */
+  margin-top: 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .pal-info .element img {
+  width: 20px;
+  height: 20px;
+} */
+
+.pal-info .element .element-text {
+  font-size: 15px;
+  color: white;
+  margin: 0;
+  padding-bottom: 1.5px;
+  background-color:rgb(100, 100, 100);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.pal-info .element .dark-color {
+  background-color: #BE1787;
+}
+
+.pal-info .element .electric-color {
+  background-color: #FFDB2E;
+  color: rgb(41, 41, 41);
+}
+
+.pal-info .element .grass-color {
+  background-color: #BBFF52;
+  color: rgb(41, 41, 41);
+}
+
+.pal-info .element .dragon-color {
+  background-color: #D978FF;
+}
+
+.pal-info .element .fire-color {
+  background-color: #FC7149;
+}
+
+.pal-info .element .neutral-color {
+  background-color: #FEEEE6;
+  color: rgb(88, 88, 88);
+}
+
+.pal-info .element .ground-color {
+  background-color: #E4AA78;
+}
+
+.pal-info .element .ice-color {
+  background-color: #81F8FF;
+  color: rgb(41, 41, 41);
+}
+
+.pal-info .element .water-color {
+  background-color: #52C9FF;
+}
+
+.pal-details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  max-width: 80%;
+}

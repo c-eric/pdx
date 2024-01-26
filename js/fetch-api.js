@@ -1,5 +1,5 @@
 const page = 1; // The page number to fetch
-const limit = 111; // The number of items per page
+const limit = 137; // The number of items per page
 
 fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
   .then((response) => {
@@ -17,7 +17,7 @@ fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
     const infoDiv = document.getElementById("wrapper");
     infoDiv.innerHTML = ""; // wipe demo cards
 
-    for (let i = 0; i < limit; i++) {
+    for (let i = 0; i < 137; i++) {
         let elementHTML = "";
 
         let palKey = data.content[i].key; // ID
@@ -29,7 +29,6 @@ fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
         // console.log(data.content[i].types[0]);
 
         let palElementCap1 = capitalizeFirstLetter(palElement1) 
-
         elementHTML = `<p class="element-text ${palElement1}-color">${palElementCap1}</p>`
         
         if (palElement2 != undefined) {
@@ -37,6 +36,7 @@ fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
             elementHTML += `<p class="element-text ${palElement2}-color">${palElementCap2}</p>`
         }
         
+        // PAL CARDS
         const listItem = document.createElement("div");
         listItem.className = "pal-info";
         listItem.innerHTML = `
@@ -48,7 +48,17 @@ fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
         </div>
         `;
         infoDiv.appendChild(listItem);
+
+        // PAL MODALS
+        // const modalItem = document.createElement("div");
+        // modalItem.className = "pal-details"
+        // modalItem.innerHTML = `
+        
+        // `;
+        // infoDiv.appendChild(modalItem);
+        
     }
+    console.log(infoDiv.innerHTML);
   })
   .catch((error) => {
     console.error("Error:", error);

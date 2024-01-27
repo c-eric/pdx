@@ -1,9 +1,12 @@
 let darkMode = localStorage.getItem('darkMode');
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
+const themeIcon = document.querySelector('#theme-icon');
 
 const enableDarkMode = () => {
     // add the darkmode class to the body
     document.body.classList.add('darkmode');
+    // update icon 
+    themeIcon.setAttribute("name", "moon");
     // update darkMode in the LocalStorage
     localStorage.setItem('darkMode', 'enabled');
 };
@@ -11,6 +14,8 @@ const enableDarkMode = () => {
 const disableDarkMode = () => {
     // remove the darkmode class from the body
     document.body.classList.remove('darkmode');
+    // update icon
+    themeIcon.setAttribute("name", "sunny");
     // update darkMode in the LocalStorage
     localStorage.setItem('darkMode', null);
 };

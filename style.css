@@ -1,18 +1,22 @@
 :root {
+  --icon-clr: rgb(255, 255, 255);
   --section-bg-clr: rgb(255, 255, 255);
   --card-bg-clr: rgb(255, 255, 255);
   --card-text-clr: rgb(0, 0, 0);
   --card-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  --card-hover-shadow: 0 2px 10px rgb(0 0 0 / 0.3);
   --id-clr: rgb(88, 88, 88);
   --id-bg-clr: rgb(202, 202, 202);
   --triangle-gradient: linear-gradient(45deg, rgb(228 228 228) 0%, rgb(228 228 228) 50%, rgb(220 220 220) 51%, rgb(228 228 228) 71%, rgb(228 228 228) 100%);
 }
 
 .darkmode {
+  --icon-clr: rgb(17, 17, 17);
   --section-bg-clr: rgb(9, 9, 9);
   --card-bg-clr: rgb(27, 27, 27);
   --card-text-clr: rgb(255, 255, 255);
   --card-box-shadow: 0 3px 10px rgb(88 88 88 / 20%);
+  --card-hover-shadow: 0 1px 5px rgba(226, 226, 226, 0.6);
   /* id clr 143 143 143 */
   --id-clr: rgb(180, 180, 180);
   --id-bg-clr: rgb(15, 15, 15, 0.6);
@@ -48,7 +52,8 @@ nav button {
   border: none;
   padding: 10px;
   cursor: pointer;
-  color: white;
+  color: var(--icon-clr);
+  transition: 0.5s;
 }
 
 #hero-space {
@@ -80,7 +85,7 @@ nav button {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   margin-top: -20px;
-
+  transition: 0.5s;
 }
 
 #wrapper {
@@ -100,6 +105,14 @@ nav button {
   border-radius: 10px;
   box-shadow: var(--card-box-shadow);
   margin: 7px;
+  transition: 0.5s;
+}
+
+.pal-info:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: var(--card-hover-shadow);
+  transition: 0.7s;
 }
 
 .pal-img {
@@ -107,6 +120,7 @@ nav button {
   /* background-color: rgb(228, 228, 228); */
   border-radius: 10px;
   background: var(--triangle-gradient);
+
 }
 
 .pal-info .id {
@@ -120,7 +134,7 @@ nav button {
   border-top-left-radius: 10px;
   border-bottom-right-radius: 5px;;
   padding: 0px 5px 2px 3px;
-
+  transition: 0.5s;
 }
 
 .pal-info .pal-name {
@@ -129,6 +143,7 @@ nav button {
   font-size: 22px;
   letter-spacing: 0.5px;
   color: var(--card-text-clr);
+  transition: 0.5s;
 }
 
 .pal-info .element {

@@ -1,4 +1,6 @@
 :root {
+  --primary-clr: black;
+
   --icon-clr: rgb(255, 255, 255);
   --section-bg-clr: rgb(255, 255, 255);
   --card-bg-clr: rgb(255, 255, 255);
@@ -11,6 +13,8 @@
 }
 
 .darkmode {
+  --primary-clr: white;
+
   --icon-clr: rgb(17, 17, 17);
   --section-bg-clr: rgb(9, 9, 9);
   --card-bg-clr: rgb(27, 27, 27);
@@ -23,9 +27,15 @@
   --triangle-gradient: linear-gradient(45deg, rgba(49,49,49,1) 0%, rgba(49,49,49,1) 50%, rgba(41,41,41,1) 51%, rgba(41,41,41,1) 71%, rgba(41,41,41,1) 100%);
 }
 
-body {
+/* html {
+  background-color: var(--section-bg-clr);
+} */
+
+html, body {
   margin: 0;
   padding: 0;
+  background-color: var(--section-bg-clr);
+  transition: 0.5s;
 }
 
 header {
@@ -229,4 +239,30 @@ nav button {
   z-index: 10;
   background-color: white;
   max-width: 80%;
+}
+
+#err-msg {
+  max-width: 80%;
+  font-family: "Exo 2", sans-serif;
+  color: var(--card-text-clr);
+  margin: auto;
+  text-align: center;
+  /* padding-bottom: 100vh; */
+}
+
+#preview {
+  font-family: "Exo 2", sans-serif;
+  margin-top: 10px;
+  border: 2px solid var(--primary-clr);
+  border-radius: 5px;
+  color: var(--primary-clr);
+  background-color: transparent;
+  cursor: pointer;
+  padding: 4px 14px 6px 14px;
+  font-size: 14px;
+}
+
+#preview:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
 }

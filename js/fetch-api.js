@@ -1,5 +1,7 @@
 const page = 1; // The page number to fetch
 const limit = 137; // The number of items per page
+const errDiv = document.getElementById("error-msg");
+const infoDiv = document.getElementById("wrapper");
 
 fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
   .then((response) => {
@@ -14,7 +16,6 @@ fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
     console.log(data.content);
     // console.log(data.content[0].name);
 
-    const infoDiv = document.getElementById("wrapper");
     infoDiv.innerHTML = ""; // wipe demo cards
 
     for (let i = 0; i < 137; i++) {
@@ -62,6 +63,15 @@ fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
   })
   .catch((error) => {
     console.error("Error:", error);
+    errDiv.innerHTML = `
+    <div id="err-msg">If you see this message it is because the data was unable to be fetched.
+       This is because the API is locally hosted. However, if you wish to preview what the website would've looked like if it managed to fetch the data.
+       Please press the button below.
+       <br>
+       <button id="preview">Preview</button>
+    </div>
+    `; 
+    previewPage();
 });
 
 function capitalizeFirstLetter(string) {

@@ -16,7 +16,7 @@ function toggleElement(event) {
   if (clickedElementClasses.value.includes("active")) {
     clickedElement.classList.remove("active");
 
-    fetch(`http://localhost:8080`)
+    fetch(`http://localhost:8080/pals`)
       .then((response) => response.json())
       .then((data) => {
         allPals = data;

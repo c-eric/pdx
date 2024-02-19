@@ -7,7 +7,7 @@ const sortDiv = document.getElementById("sort");
 
 let allPals = [];
 
-fetch(`http://localhost:8080`)
+fetch(`http://localhost:8080/pals`)
   .then((response) => response.json())
   .then((data) => {
     allPals = data;
@@ -104,7 +104,7 @@ function handleSearch() {
         console.error("Error:", error);
       });
   } else {
-    fetch(`http://localhost:8080`)
+    fetch(`http://localhost:8080/pals`)
       .then((response) => response.json())
       .then((data) => {
         allPals = data;

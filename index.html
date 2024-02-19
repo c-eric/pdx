@@ -11,8 +11,18 @@
       href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"
+    ></script>
   </head>
 
   <body>
@@ -32,17 +42,55 @@
     </section>
 
     <section id="paldex">
+      <div id="search-sort-wrapper">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+
+      <div id="sort">
+        <div class="sort-element">
+          <p class="element-text dark-color">Dark</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text dragon-color">Dragon</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text ground-color">Ground</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text electric-color">Electric</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text fire-color">Fire</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text ice-color">Ice</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text grass-color">Grass</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text neutral-color">Neutral</p>
+        </div>
+        <div class="sort-element">
+          <p class="element-text water-color">Water</p>
+        </div>
+      </div>
 
       <div id="wrapper">
         <div id="error-msg"></div>
-
-        
       </div>
-    
     </section>
 
     <script src="js/fetch-api.js"></script>
     <script src="js/toggle-theme.js"></script>
     <script src="js/preview.js"></script>
+    <script src="js/sort.js"></script>
   </body>
 </html>

@@ -27,10 +27,6 @@
   --triangle-gradient: linear-gradient(45deg, rgba(49,49,49,1) 0%, rgba(49,49,49,1) 50%, rgba(41,41,41,1) 51%, rgba(41,41,41,1) 71%, rgba(41,41,41,1) 100%);
 }
 
-/* html {
-  background-color: var(--section-bg-clr);
-} */
-
 html, body {
   margin: 0;
   padding: 0;
@@ -39,15 +35,8 @@ html, body {
 }
 
 header {
-  /* change to fix later on */
   position: absolute; 
-  /* top: 0;
-  left: 0; */
   width: 100%;
-  /* padding: 2px 8px; */
-  /* background: red; */
-  /* display: flex;
-  justify-content: space-between; */
   align-items: center;
   z-index: 99;
 }
@@ -75,11 +64,6 @@ nav button {
   justify-content: center;
   align-items: center;
 }
-
-/* #hero-logo {
-  min-width: 200px;
-  max-width: 500px;
-} */
 
 #hero-text {
   text-align: center;
@@ -127,14 +111,12 @@ nav button {
 
 .pal-img {
   width: 180px;
-  /* background-color: rgb(228, 228, 228); */
   border-radius: 10px;
   background: var(--triangle-gradient);
 
 }
 
 .pal-info .id {
-  /* margin: 0px 0px 0px 3px; */
   margin: 0;
   font-family: "Exo 2", sans-serif;
   font-size: 17px;
@@ -157,23 +139,15 @@ nav button {
 }
 
 .pal-info .element {
-  /* background-color:rgb(100, 100, 100); */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
-  /* padding: 1px 5px 1px 5px; */
   font-family: "Exo 2", sans-serif;
   border-radius: 5px;
-  /* float: left; */
   margin-top: 2px;
   justify-content: center;
   align-items: center;
 }
-
-/* .pal-info .element img {
-  width: 20px;
-  height: 20px;
-} */
 
 .pal-info .element .element-text {
   font-size: 15px;
@@ -183,7 +157,6 @@ nav button {
   padding-bottom: 2.5px;
   background-color:rgb(100, 100, 100);
   text-align: center;
-  /* border-radius: 5px; */
   box-shadow: 0 1px 1px rgb(0 0 0 / 0.2);
   clip-path: polygon(0 0,calc(100% - 10px) 0,100% calc(0% + 10px),100% 100%,0 100%);
   margin-top: 5px;
@@ -247,7 +220,6 @@ nav button {
   color: var(--card-text-clr);
   margin: auto;
   text-align: center;
-  /* padding-bottom: 100vh; */
 }
 
 #preview {

@@ -747,7 +747,7 @@ function previewPage() {
         </div>
         </div><div class="pal-info">
         <p class="id">#088B</p>
-        <img class="pal-img" src="https://static.wikia.nocookie.net/palworld/images/2/2c/Ice_Reptyro_menu.png" alt="">
+        <img class="pal-img" src="https://static.wikia.nocookie.net/palworld/images/0/09/Reptyro_Cryst_menu.png" alt="">
         <h5 class="pal-name">Ice Reptyro</h5>
         <div class="element">
             <p class="element-text ice-color">Ice</p><p class="element-text ground-color">Ground</p>
@@ -761,7 +761,7 @@ function previewPage() {
         </div>
         </div><div class="pal-info">
         <p class="id">#089B</p>
-        <img class="pal-img" src="https://static.wikia.nocookie.net/palworld/images/5/5a/Ice_Kingpaca_menu.png" alt="">
+        <img class="pal-img" src="https://static.wikia.nocookie.net/palworld/images/4/49/Kingpaca_Cryst_menu.png" alt="">
         <h5 class="pal-name">Ice Kingpaca</h5>
         <div class="element">
             <p class="element-text ice-color">Ice</p>
@@ -962,7 +962,7 @@ function previewPage() {
         <div class="element">
             <p class="element-text dragon-color">Dragon</p>
         </div>
-        </div>
+    </div>
     `;
   });
 }

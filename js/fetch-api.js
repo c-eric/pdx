@@ -11,14 +11,13 @@ fetch(`http://localhost:8080/?page=${page}&?limit=${limit}`)
     return response.json();
   })
   .then((data) => {
-    // `data` is the response from your API
+    // `data` is the response from API
     console.log(data);
     console.log(data.content);
-    // console.log(data.content[0].name);
 
     infoDiv.innerHTML = ""; // wipe demo cards
 
-    for (let i = 0; i < 137; i++) {
+    for (let i = 0; i < limit; i++) {
         let elementHTML = "";
 
         let palKey = data.content[i].key; // ID

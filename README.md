@@ -6,3 +6,4 @@ Front-End Summary:
 - Searches and sorts based on name or type 
 - Toggles theme appearance by pressing icon in navigation bar
 
+![image](https://github.com/c-eric/pdx/assets/43305167/0bbcd9e7-40dd-42bd-8f67-8fdd0f7a3f37)

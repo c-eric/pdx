@@ -1,5 +1,5 @@
 # Pal-dex Website
-**[Personal Project (in-progress)]**<br>
+**[Personal Project]**<br>
 This is the front-end part of the [website](https://c-eric.github.io/pdx/)<br><br>
 Front-End Summary:
 - Lists all items fetched from a [Spring Boot API](https://github.com/c-eric/pdx-api) with relevant data

@@ -310,6 +310,7 @@ nav button {
 #sort {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .sort-element {

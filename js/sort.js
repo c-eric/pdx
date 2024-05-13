@@ -11,20 +11,13 @@ function toggleElement(event) {
 
   const clickedElementClasses = clickedElement.classList;
 
-//   console.log(clickedElementClasses);
+  // console.log(clickedElementClasses);
 
   if (clickedElementClasses.value.includes("active")) {
     clickedElement.classList.remove("active");
 
-    fetch(`http://localhost:8080/pals`)
-      .then((response) => response.json())
-      .then((data) => {
-        allPals = data;
-        displayPals(allPals);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    fetchNDisplay(`http://localhost:8080/pals`);
+    
   } else {
     clickedElement.classList.add("active");
 
@@ -32,15 +25,8 @@ function toggleElement(event) {
     const fetchType = elementClass.split("-")[0];
     // console.log(fetchType);
 
-    fetch(`http://localhost:8080/type/${fetchType}`)
-      .then((response) => response.json())
-      .then((data) => {
-        allPals = data;
-        displayPals(allPals);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    fetchNDisplay(`http://localhost:8080/type/${fetchType}`);
+
   }
   // console.log("After classList:", clickedElement.classList.value);
 }

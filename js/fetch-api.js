@@ -30,7 +30,19 @@ fetch(`http://localhost:8080/pals`)
     previewPage();
   });
 
-searchInput.addEventListener("keyup", handleSearch);
+// Fetch and display specific pals based on URL
+function fetchNDisplay(url) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      allPals = data;
+      displayPals(allPals);
+      console.log("fetch & display successfull");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 
 async function fetchPalBeforeRedirect(name) {
   try {
@@ -39,10 +51,11 @@ async function fetchPalBeforeRedirect(name) {
     ]);
     return true;
   } catch (error) {
-    console.error("Faled to fetch Pal data before redirect");
+    console.error("Failed to fetch Pal data before redirect");
   }
 }
 
+// Display pals fetched from database
 function displayPals(pal) {
   infoDiv.innerHTML = "";
 
@@ -88,31 +101,24 @@ function displayPals(pal) {
   });
 }
 
+// Listen for "keyup" on keys A-Z, Space and Backspace
+searchInput.addEventListener("keyup", function(event) {
+  // console.log(event.key);
+  if ((event.key >= 'a' && event.key <= 'z') || event.key === 'Space' || event.key === 'Backspace') {
+    handleSearch();
+    // console.log(event.key + " pressed");
+  }
+});
+
+// Handle search input
 function handleSearch() {
   const searchTerm = searchInput.value;
   console.log(searchTerm);
 
   if (searchTerm != "") {
-    fetch(`http://localhost:8080/name/${searchTerm}`)
-      .then((response) => response.json())
-      .then((data) => {
-        // add not found message
-        allPals = data;
-        displayPals(allPals);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    fetchNDisplay(`http://localhost:8080/name/${searchTerm}`);
   } else {
-    fetch(`http://localhost:8080/pals`)
-      .then((response) => response.json())
-      .then((data) => {
-        allPals = data;
-        displayPals(allPals);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    fetchNDisplay(`http://localhost:8080/pals`);
   }
 }
 

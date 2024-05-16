@@ -60,7 +60,7 @@ function displayPals(pal) {
   infoDiv.innerHTML = "";
 
   pal.forEach((pal) => {
-      console.log(pal);
+      // console.log(pal);
 
       let elementHTML = "";
 

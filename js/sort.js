@@ -35,11 +35,11 @@ function toggleElement(event) {
     }
 
     if (activeCounter == 1) {
-      fetchNDisplay(`http://localhost:8080/type/${activeTypes[0]}`);
+      fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/type/${activeTypes[0]}`);
       console.log("SUCCESS: " + activeTypes[0] + " fetched");
     }
     else {
-      fetchNDisplay(`http://localhost:8080/pals`);
+      fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
       console.log("SUCCESS: all pals fetched");
     }
     
@@ -55,10 +55,10 @@ function toggleElement(event) {
       console.log(elementTypeName + " added to activeTypes[]");
 
       if (activeCounter == 2) {
-        fetchNDisplay(`http://localhost:8080/types/${activeTypes[0]}-${activeTypes[1]}`);
+        fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/types/${activeTypes[0]}-${activeTypes[1]}`);
         console.log("SUCCESS: " + activeTypes[0] + " & " + activeTypes[1] + " fetched");
       } else {
-        fetchNDisplay(`http://localhost:8080/type/${activeTypes[0]}`);
+        fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/type/${activeTypes[0]}`);
         console.log("SUCCESS: " + activeTypes[0] + " fetched");
       }
     } catch(err) {

@@ -1,5 +1,4 @@
 const sortElements = document.getElementsByClassName("element-text");
-let activeCounter = 0;
 let activeTypes = [];
 
 // Iterate over the HTMLCollection and add event listener to each element
@@ -19,7 +18,6 @@ function toggleElement(event) {
 
   // Deselect element if button is already active
   if (clickedElementClasses.value.includes("active")) {
-    activeCounter--;
     clickedElement.classList.remove("active");
 
     for (let i = 0; i < activeTypes.length; i++) {
@@ -34,7 +32,7 @@ function toggleElement(event) {
       }
     }
 
-    if (activeCounter == 1) {
+    if (activeTypes.length == 1) {
       fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/type/${activeTypes[0]}`);
       console.log("SUCCESS: " + activeTypes[0] + " fetched");
     }
@@ -47,14 +45,13 @@ function toggleElement(event) {
   // Select element if button is not active
   else {
     try {
-      activeCounter++;
-      if (activeCounter > 2) throw "Too many element types selected";
+      if (activeTypes.length == 2) throw "Too many element types selected";
       clickedElement.classList.add("active");
       activeTypes.push(elementTypeName);
       console.log("----------");
       console.log(elementTypeName + " added to activeTypes[]");
 
-      if (activeCounter == 2) {
+      if (activeTypes.length == 2) {
         fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/types/${activeTypes[0]}-${activeTypes[1]}`);
         console.log("SUCCESS: " + activeTypes[0] + " & " + activeTypes[1] + " fetched");
       } else {
@@ -63,7 +60,6 @@ function toggleElement(event) {
       }
     } catch(err) {
       console.log(err);
-      activeCounter = 2;
     }
   }
  

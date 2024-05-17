@@ -47,7 +47,7 @@ function fetchNDisplay(url) {
 async function fetchPalBeforeRedirect(name) {
   try {
     const palData = await Promise.all([
-      fetch(`https://pdx-api-2cd27046206a.herokuapp.com/${name}`).then((res) => res.json()),
+      fetch(`https://pdx-api-2cd27046206a.herokuapp.com/name/${name}`).then((res) => res.json()),
     ]);
     return true;
   } catch (error) {

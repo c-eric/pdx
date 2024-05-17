@@ -7,7 +7,7 @@ const sortDiv = document.getElementById("sort");
 
 let allPals = [];
 
-fetch(`http://localhost:8080/pals`)
+fetch(`https://pdx-api-2cd27046206a.herokuapp.com/pals`)
   .then((response) => response.json())
   .then((data) => {
     allPals = data;
@@ -47,7 +47,7 @@ function fetchNDisplay(url) {
 async function fetchPalBeforeRedirect(name) {
   try {
     const palData = await Promise.all([
-      fetch(`http://localhost:8080/name/${name}`).then((res) => res.json()),
+      fetch(`https://pdx-api-2cd27046206a.herokuapp.com/${name}`).then((res) => res.json()),
     ]);
     return true;
   } catch (error) {
@@ -116,9 +116,9 @@ function handleSearch() {
   console.log(searchTerm);
 
   if (searchTerm != "") {
-    fetchNDisplay(`http://localhost:8080/name/${searchTerm}`);
+    fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/name/${searchTerm}`);
   } else {
-    fetchNDisplay(`http://localhost:8080/pals`);
+    fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
   }
 }
 

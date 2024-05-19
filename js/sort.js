@@ -10,27 +10,14 @@ function toggleElement(event) {
   const clickedElement = event.target;
   const clickedElementClasses = clickedElement.classList;
   const elementTypeName = clickedElementClasses[1].split("-")[0];
-  
-  //clickedElement.classList.toggle("active"); ***
-  /*
-    This can be simplified by using the classList.toggle() method, which adds the class if it's not present and removes it if it is.
-  */
 
   // Deselect element if button is already active
   if (clickedElementClasses.value.includes("active")) {
     clickedElement.classList.remove("active");
 
-    for (let i = 0; i < activeTypes.length; i++) {
-      if (elementTypeName === activeTypes[i]) {
-        if (i === 0) {
-          activeTypes.shift();
-        } else {
-          activeTypes.pop();
-        }
-        console.log("----------");
-        console.log(elementTypeName + " removed from activeTypes[]");
-      }
-    }
+    activeTypes = activeTypes.filter(type => type !== elementTypeName);
+    console.log("----------");
+    console.log(elementTypeName + " removed from activeTypes[]");
 
     if (activeTypes.length == 1) {
       fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/type/${activeTypes[0]}`);

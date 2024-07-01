@@ -7,13 +7,11 @@ const sortDiv = document.getElementById("sort");
 
 let allPals = [];
 
-fetch(`https://pdx-api-2cd27046206a.herokuapp.com/pals`)
-  .then((response) => response.json())
-  .then((data) => {
-    allPals = data;
-    displayPals(allPals);
-  })
-  .catch((error) => {
+window.onload = async function() {
+  try {
+    const allPalsData = await fetchPalsData();
+    displayPals(allPalsData);
+  } catch (error) {
     console.error("Error:", error);
     searchDiv.innerHTML = "";
     sortDiv.innerHTML = "";
@@ -28,30 +26,38 @@ fetch(`https://pdx-api-2cd27046206a.herokuapp.com/pals`)
         </div>
         `;
     previewPage();
-  });
-
-// Fetch and display specific pals based on URL
-function fetchNDisplay(url) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      allPals = data;
-      displayPals(allPals);
-      console.log("fetch & display successfull");
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  }
 }
 
-async function fetchPalBeforeRedirect(name) {
+// Fetch all Pals Data
+async function fetchPalsData() {
   try {
-    const palData = await Promise.all([
-      fetch(`https://pdx-api-2cd27046206a.herokuapp.com/name/${name}`).then((res) => res.json()),
-    ]);
-    return true;
+    const response = await fetch(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error("Failed to fetch Pal data before redirect");
+    return error;
+  }
+}
+
+// Fetch and display specific pals based on URL
+async function fetchSpecificPalData(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
+
+// Update displayed pals based on data fetched from 'fetchSpecificPalData'
+async function updateDisplayedPals(url) {
+  try {
+    const specificPalsData = await fetchSpecificPalData(url);
+    displayPals(specificPalsData);
+  } catch (error) {
+    console.error("Error:", error);
   }
 }
 
@@ -90,12 +96,6 @@ function displayPals(pal) {
       </div>
       `;
 
-      listItem.addEventListener("click", async () => {
-        const success = await fetchPalBeforeRedirect(palName);
-        if (success) {
-          // modal
-        }
-      })
       infoDiv.appendChild(listItem);
     
   });
@@ -116,9 +116,9 @@ function handleSearch() {
   console.log(searchTerm);
 
   if (searchTerm != "") {
-    fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/name/${searchTerm}`);
+    updateDisplayedPals(`https://pdx-api-2cd27046206a.herokuapp.com/name/${searchTerm}`);
   } else {
-    fetchNDisplay(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
+    updateDisplayedPals(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
   }
 }
 

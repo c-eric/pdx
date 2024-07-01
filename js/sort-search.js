@@ -1,4 +1,5 @@
 const sortElements = document.getElementsByClassName("element-text");
+const searchInput = document.getElementById("search-input");
 let activeTypes = [];
 
 // Iterate over the HTMLCollection and add event listener to each element
@@ -49,5 +50,26 @@ function toggleElement(event) {
       console.log(err);
     }
   }
- 
+}
+
+
+// Listen for "keyup" on keys A-Z, Space and Backspace
+searchInput.addEventListener("keyup", function(event) {
+  // console.log(event.key);
+  if ((event.key >= 'a' && event.key <= 'z') || event.key === 'Space' || event.key === 'Backspace') {
+    handleSearch();
+    // console.log(event.key + " pressed");
+  }
+});
+
+// Handle search input
+function handleSearch() {
+  const searchTerm = searchInput.value;
+  console.log(searchTerm);
+
+  if (searchTerm != "") {
+    updateDisplayedPals(`https://pdx-api-2cd27046206a.herokuapp.com/name/${searchTerm}`);
+  } else {
+    updateDisplayedPals(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
+  }
 }

@@ -1,7 +1,5 @@
-const limit = 137; // The number of items per page
 const errDiv = document.getElementById("error-msg");
 const infoDiv = document.getElementById("wrapper");
-const searchInput = document.getElementById("search-input");
 const searchDiv = document.getElementById("search-sort-wrapper");
 const sortDiv = document.getElementById("sort");
 
@@ -9,8 +7,7 @@ let allPals = [];
 
 window.onload = async function() {
   try {
-    const allPalsData = await fetchPalsData();
-    displayPals(allPalsData);
+    await updateDisplayedPals(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
   } catch (error) {
     console.error("Error:", error);
     searchDiv.innerHTML = "";
@@ -29,21 +26,16 @@ window.onload = async function() {
   }
 }
 
-// Fetch all Pals Data
-async function fetchPalsData() {
-  try {
-    const response = await fetch(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return error;
-  }
-}
-
 // Fetch and display specific pals based on URL
-async function fetchSpecificPalData(url) {
+async function fetchPalsData(url) {
   try {
     const response = await fetch(url);
+
+    // Response status handling
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
@@ -51,14 +43,19 @@ async function fetchSpecificPalData(url) {
   }
 }
 
-// Update displayed pals based on data fetched from 'fetchSpecificPalData'
+// Update displayed pals based on data fetched from 'fetchPalsData'
 async function updateDisplayedPals(url) {
   try {
-    const specificPalsData = await fetchSpecificPalData(url);
-    displayPals(specificPalsData);
+    const palsData = await fetchPalsData(url);
+    displayPals(palsData);
   } catch (error) {
     console.error("Error:", error);
   }
+}
+
+// Capitalize first letter of string
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Display pals fetched from database
@@ -101,27 +98,4 @@ function displayPals(pal) {
   });
 }
 
-// Listen for "keyup" on keys A-Z, Space and Backspace
-searchInput.addEventListener("keyup", function(event) {
-  // console.log(event.key);
-  if ((event.key >= 'a' && event.key <= 'z') || event.key === 'Space' || event.key === 'Backspace') {
-    handleSearch();
-    // console.log(event.key + " pressed");
-  }
-});
 
-// Handle search input
-function handleSearch() {
-  const searchTerm = searchInput.value;
-  console.log(searchTerm);
-
-  if (searchTerm != "") {
-    updateDisplayedPals(`https://pdx-api-2cd27046206a.herokuapp.com/name/${searchTerm}`);
-  } else {
-    updateDisplayedPals(`https://pdx-api-2cd27046206a.herokuapp.com/pals`);
-  }
-}
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}

@@ -129,6 +129,12 @@ nav button {
   font-family: "Montserrat", sans-serif;
 }
 
+@media only screen and (max-width: 500px) {
+  .search-bar input {
+    width: 300px;
+  }
+}
+
 .search-bar input:focus {
   outline: none;
 }
